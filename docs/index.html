@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="面向中国高中生家庭的美国本科工程、健康、农业与自然资源专业分析报告">
+  <title>美国本科专业与就业分析报告｜工程、健康、农业与自然资源</title>
+  <style>
+    :root {
+      --paper: #f7f4ec;
+      --white: #fffdf8;
+      --ink: #152231;
+      --muted: #59646d;
+      --line: #d9d4c8;
+      --navy: #173b54;
+      --teal: #287c77;
+      --coral: #c96952;
+      --gold: #b78b3d;
+      --green-bg: #edf3ed;
+      --rose-bg: #f8eee9;
+      --blue-bg: #edf2f4;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.75;
+    }
+    a { color: var(--teal); text-underline-offset: 3px; }
+    h1, h2, h3, h4 {
+      margin: 0;
+      font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
+      line-height: 1.25;
+    }
+    h1 { max-width: 900px; font-size: clamp(38px, 6vw, 70px); letter-spacing: -.04em; }
+    h2 { font-size: clamp(28px, 4vw, 44px); letter-spacing: -.025em; }
+    h3 { font-size: 21px; }
+    p { margin: 0; }
+    .page { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+    .cover { padding: 72px 0 58px; border-bottom: 1px solid var(--line); }
+    .kicker {
+      margin-bottom: 14px;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .lead { max-width: 850px; margin-top: 28px; color: var(--muted); font-size: 18px; }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .cover-rule {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 18px;
+      max-width: 820px;
+      margin-top: 42px;
+      padding: 24px 27px;
+      border-left: 4px solid var(--gold);
+      background: #eee8d9;
+    }
+    .cover-rule b { font-family: "Noto Serif SC", "Songti SC", serif; font-size: 18px; }
+    .cover-rule p { margin-top: 7px; color: var(--muted); font-size: 14px; }
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      padding: 42px 0 68px;
+    }
+    .toc a {
+      padding: 20px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .toc b { display: block; margin-bottom: 5px; color: var(--gold); font: italic 20px Georgia, serif; }
+    .toc span { font-size: 14px; font-weight: 700; }
+    section { padding: 78px 0; border-top: 1px solid var(--line); }
+    section.band { margin-inline: calc(50% - 50vw); padding-inline: max(24px, calc((100vw - 1180px) / 2)); }
+    .engineering { background: var(--blue-bg); }
+    .health { background: var(--rose-bg); }
+    .agriculture { background: var(--green-bg); }
+    .dark { background: var(--navy); color: white; }
+    .section-head { display: grid; grid-template-columns: 46px 1fr; gap: 18px; margin-bottom: 22px; }
+    .num { color: var(--gold); font: italic 27px/1 Georgia, serif; }
+    .intro { max-width: 920px; margin: 0 0 34px 64px; color: var(--muted); }
+    .dark .intro { color: #ccdae1; }
+    .summary-grid, .school-grid, .recommend-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .summary-card, .school-card, .recommend-card {
+      padding: 26px;
+      border: 1px solid var(--line);
+      background: rgba(255, 253, 248, .72);
+    }
+    .summary-card .icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: white; font-weight: 800; }
+    .summary-card:nth-child(1) .icon { background: var(--navy); }
+    .summary-card:nth-child(2) .icon { background: var(--coral); }
+    .summary-card:nth-child(3) .icon { background: var(--teal); }
+    .summary-card h3 { margin-top: 20px; }
+    .summary-card p, .school-card p, .recommend-card p { margin-top: 12px; color: var(--muted); font-size: 14px; }
+    .priority {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 34px;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+    .priority div { padding: 19px; border-right: 1px solid var(--line); }
+    .priority div:last-child { border-right: 0; }
+    .priority b { display: block; margin-bottom: 5px; }
+    .priority span { color: var(--muted); font-size: 13px; }
+    .table-wrap { overflow-x: auto; margin: 32px 0; border: 1px solid var(--line); background: rgba(255,255,255,.68); }
+    table { width: 100%; min-width: 1040px; border-collapse: collapse; table-layout: fixed; }
+    th, td {
+      padding: 17px 15px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 12.5px;
+      line-height: 1.7;
+      text-align: left;
+    }
+    tr:last-child th, tr:last-child td { border-bottom: 0; }
+    th:last-child, td:last-child { border-right: 0; }
+    thead th { background: var(--navy); color: white; font-size: 12px; }
+    tbody th { color: var(--navy); font-family: "Noto Serif SC", "Songti SC", serif; font-size: 14px; }
+    .five th:first-child { width: 16%; }
+    .five th:nth-child(2) { width: 21%; }
+    .five th:nth-child(3) { width: 20%; }
+    .five th:nth-child(4) { width: 21%; }
+    .data-strip { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 34px; border-block: 1px solid var(--navy); }
+    .data-strip div { min-height: 145px; padding: 20px; border-right: 1px solid var(--line); }
+    .data-strip div:last-child { border-right: 0; }
+    .data-strip span { display: block; font-size: 12px; font-weight: 800; }
+    .data-strip b { display: block; margin: 8px 0; color: var(--teal); font: 700 32px/1 Georgia, serif; }
+    .health .data-strip b { color: var(--coral); }
+    .agriculture .data-strip b { color: #3d7a50; }
+    .data-strip small, .caption { color: var(--muted); font-size: 11px; }
+    .caption { margin-top: 10px; }
+    .school-grid { grid-template-columns: repeat(2, 1fr); margin-top: 36px; }
+    .school-card h3 { margin-bottom: 10px; }
+    .school-card p { margin: 0; color: var(--ink); }
+    .school-card small { display: block; margin-top: 12px; color: var(--muted); }
+    .note {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 17px;
+      margin-top: 30px;
+      padding: 24px;
+      border: 1px solid #d4bf98;
+      background: #f6edda;
+    }
+    .note h3 { font-size: 18px; }
+    .note p { margin-top: 8px; color: #645640; font-size: 13px; }
+    .dark .table-wrap { border-color: #456277; }
+    .dark table { min-width: 880px; }
+    .dark th, .dark td { border-color: #456277; background: #1c455f; color: #edf4f5; }
+    .dark thead th { background: #102f43; }
+    .dark tbody th { color: #e8c77d; }
+    .recommend-grid { margin-top: 34px; }
+    .recommend-card { border-color: #456277; background: #1c455f; }
+    .recommend-card b { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #e4c276; color: var(--navy); }
+    .recommend-card h3 { margin-top: 18px; }
+    .recommend-card p { color: #ccdae1; }
+    .checklist { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 34px; margin: 32px 0 0; padding: 0; list-style: none; }
+    .checklist li { display: grid; grid-template-columns: 42px 1fr; gap: 14px; padding: 21px 0; border-top: 1px solid var(--line); }
+    .checklist .step { color: var(--gold); font: italic 17px Georgia, serif; }
+    .checklist strong { font-size: 14px; }
+    .checklist p { margin-top: 5px; color: var(--muted); font-size: 13px; }
+    .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 34px; }
+    .fit-card { padding: 25px; border-top: 4px solid var(--teal); background: var(--white); }
+    .fit-card:nth-child(2) { border-color: var(--coral); }
+    .fit-card h3 { margin-bottom: 12px; }
+    .fit-card ul { margin: 0; padding-left: 19px; color: var(--muted); font-size: 13px; }
+    .sources { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .source-group { padding-top: 16px; border-top: 2px solid var(--navy); }
+    .source-group h3 { margin-bottom: 11px; font-size: 17px; }
+    .source-group ul { margin: 0; padding-left: 18px; font-size: 12px; }
+    .source-group li { margin-bottom: 7px; }
+    .methodology { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    footer { padding: 28px 0 48px; color: var(--muted); font-size: 11px; }
+    @media (max-width: 850px) {
+      .toc, .summary-grid, .recommend-grid, .sources { grid-template-columns: 1fr; }
+      .school-grid, .fit-grid, .checklist { grid-template-columns: 1fr; }
+      .data-strip { grid-template-columns: repeat(2, 1fr); }
+      .data-strip div:nth-child(2) { border-right: 0; }
+      .data-strip div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .intro { margin-left: 0; }
+    }
+    @media (max-width: 560px) {
+      .page { width: min(100% - 30px, 1180px); }
+      .cover { padding-top: 48px; }
+      .priority, .data-strip { grid-template-columns: 1fr; }
+      .priority div, .data-strip div { border-right: 0; border-bottom: 1px solid var(--line); }
+      .section-head { grid-template-columns: 1fr; }
+      .cover-rule, .note { grid-template-columns: 1fr; }
+    }
+    @media print {
+      @page { size: A4 landscape; margin: 12mm; }
+      body { background: white; color: black; font-size: 10pt; }
+      .page { width: 100%; }
+      .toc { display: none; }
+      section, section.band { margin: 0; padding: 12mm 0; break-before: page; background: white !important; }
+      .table-wrap { overflow: visible; }
+      table, .dark table { min-width: 0; }
+      th, td { padding: 6px; font-size: 7.2pt; }
+      .summary-card, .school-card, .recommend-card, .fit-card { break-inside: avoid; }
+      a { color: black; text-decoration: none; }
+      .dark { color: black; }
+      .dark th, .dark td, .dark .recommend-card { background: white; color: black; border-color: #aaa; }
+      .dark tbody th { color: black; }
+      .dark .intro, .dark .recommend-card p { color: #444; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="cover">
+      <p class="kicker">美国本科申请 · 专业选择 · 中美就业 · 2026</p>
+      <h1>工程、健康、农业与自然资源：本科专业与就业分析报告</h1>
+      <p class="lead">面向目标美国 Top 50、希望学习理工科的中国高三学生家庭。报告从本科课程、代表院校、典型岗位、读研依赖、国际生限制和 AI 时代变化出发，帮助建立“专业—学校—就业”的完整判断框架。</p>
+      <div class="meta"><span>报告格式：独立 HTML 文件</span><span>职业数据：美国 BLS 2025–2035 预测</span><span>更新：2026 年 8 月</span></div>
+      <div class="cover-rule"><span>◆</span><div><b>核心原则：不要按专业名称做决定</b><p>同名专业在不同大学的数学、编程、实验和实践强度差异很大。本科就业结果更取决于课程组合、实习、地域产业和可验证技能。</p></div></div>
+    </header>
+
+    <nav class="toc" aria-label="目录">
+      <a href="#overview"><b>01</b><span>执行摘要</span></a>
+      <a href="#engineering"><b>02</b><span>工程</span></a>
+      <a href="#health"><b>03</b><span>健康</span></a>
+      <a href="#agriculture"><b>04</b><span>农业与自然资源</span></a>
+      <a href="#comparison"><b>05</b><span>横向比较与建议组合</span></a>
+      <a href="#method"><b>06</b><span>选校核查框架</span></a>
+    </nav>
+
+    <section id="overview">
+      <div class="section-head"><p class="num">01</p><div><p class="kicker">Executive summary</p><h2>三条路径，不同的本科回报逻辑</h2></div></div>
+      <p class="intro">工程靠可验证的技术能力进入行业；健康方向要先区分临床执照、科研和技术岗位；农业与自然资源要主动叠加工程、数据、食品或监管能力。</p>
+      <div class="summary-grid">
+        <article class="summary-card"><span class="icon">E</span><h3>工程</h3><p>本科就业路径最清晰。优先关注工业工程、机械+控制、电子与计算机、环境工程、材料与先进制造。</p></article>
+        <article class="summary-card"><span class="icon">H</span><h3>健康</h3><p>护理、公卫/生统、健康信息学、BME 和 Pre-med 的学制与执照差异极大，不能笼统比较。</p></article>
+        <article class="summary-card"><span class="icon">A</span><h3>农业与自然资源</h3><p>现代方向包括食品科技、精准农业、环境与水、GIS 遥感、育种和供应链，并非传统种植业。</p></article>
+      </div>
+      <div class="priority">
+        <div><b>就业优先</b><span>工业工程 / 机械+控制 / ECE / 环境工程</span></div>
+        <div><b>健康科技</b><span>BME+ECE/CS / 生物统计 / 健康信息学</span></div>
+        <div><b>绿色与食品</b><span>食品科学 / 农业工程 / 环境+GIS / 植物+数据</span></div>
+      </div>
+      <div class="note"><span>✦</span><div><h3>AI 时代的专业选择公式</h3><p>领域知识 × 数学/统计 × 数据与自动化 × 实验/现场能力 × 沟通与责任。真正稳健的路径通常不是追逐“AI 专业”，而是成为会使用 AI 的工程、医疗或农业环境人才。</p></div></div>
+    </section>
+
+    <section class="band engineering" id="engineering">
+      <div class="section-head"><p class="num">02</p><div><p class="kicker">Engineering</p><h2>工程：本科就业最直接，但要选对分支</h2></div></div>
+      <p class="intro">工程的共同底座是微积分、物理、编程、设计与实验。AI 会改变工具，却不会消除硬件、制造、能源、水务、质量、安全和真实系统的责任。</p>
+      <div class="table-wrap">
+        <table class="five">
+          <thead><tr><th>专业路径</th><th>本科核心课程</th><th>典型工作</th><th>AI 时代判断</th><th>选择提醒</th></tr></thead>
+          <tbody>
+            <tr><th>电子与计算机工程<br>ECE / CompE</th><td>微积分、线代、物理、电路、数字逻辑、信号与系统、嵌入式、体系结构、控制、通信。</td><td>芯片与硬件、嵌入式、机器人、汽车电子、电力系统、测试、边缘 AI。</td><td>强互补。AI 扩大算力、传感器、自动化、电力和端侧设备需求。</td><td>课程偏硬；优先选择实验室、Capstone 和硬件实习生态强的学校。</td></tr>
+            <tr><th>机械工程 + 机器人/控制</th><td>静力学、动力学、材料力学、热力学、流体、传热、制造、CAD、控制、机电一体化。</td><td>机器人、先进制造、汽车、能源设备、航空、产品设计、可靠性。</td><td>中高互补。仿真设计被增强，但装配、验证、质量和安全难以纯软件化。</td><td>专业面宽；用控制、电子、编程和实习形成明确方向。</td></tr>
+            <tr><th>工业工程 / 运筹学<br>IE / OR</th><td>概率统计、运筹优化、生产系统、供应链、质量、人因、仿真、数据分析。</td><td>供应链、运营优化、制造系统、物流、咨询、质量、医院运营。</td><td>强互补。企业需要把 AI 嵌入真实流程，IE 擅长成本、约束和系统优化。</td><td>适合数学不错但不想只写代码的学生，行业迁移性强。</td></tr>
+            <tr><th>土木 / 环境工程</th><td>工程力学、水力学、环境化学、给排水、结构、岩土、交通、水处理、环境建模。</td><td>水务、污染治理、基础设施、环境咨询、交通、气候韧性、项目管理。</td><td>稳定互补。监管、现场条件、公共安全和基础设施更新构成长周期需求。</td><td>美国部分岗位后期重视 PE；回国对接市政、环保、能源和工程咨询。</td></tr>
+            <tr><th>化学工程</th><td>物理化学、热力学、传递过程、反应工程、分离、过程控制、工厂设计。</td><td>制药、化工、半导体材料、电池、食品工艺、能源、生产工程。</td><td>中高互补。价值在把配方转为安全、稳定、可量产的工艺。</td><td>不等于“学化学”；数学和工程过程强度更高，行业景气差异大。</td></tr>
+            <tr><th>材料科学与工程</th><td>材料热力学、晶体结构、力学性能、电子材料、聚合物、陶瓷、表征、加工。</td><td>半导体、电池、复合材料、金属、失效分析、质量、研发与制造。</td><td>上升型互补。AI 加快材料发现，实验验证和工艺放大仍需工程人才。</td><td>本科岗位常在制造与质量；高端研发通常更偏好硕博。</td></tr>
+            <tr><th>生物医学工程 BME</th><td>生理、生物力学、生物材料、医学成像、仪器、信号处理、设计与法规。</td><td>医疗器械、临床工程、质量与法规、产品、成像、康复工程。</td><td>器械与数字健康有空间，但“生物+工程”过宽可能导致技能不够尖。</td><td>建议叠加 ECE、机械、CS 或数据；核查医院与器械产业连接。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-strip">
+        <div><span>工业工程</span><b>+12%</b><small>365,100 个岗位；年均 23,100 个空缺</small></div>
+        <div><span>机械工程</span><b>+11%</b><small>298,500 个岗位；年均 17,800 个空缺</small></div>
+        <div><span>计算机硬件</span><b>+9%</b><small>76,100 个岗位；年均 4,100 个空缺</small></div>
+        <div><span>环境工程</span><b>+6%</b><small>39,100 个岗位；年均 2,300 个空缺</small></div>
+      </div>
+      <p class="caption">BLS 2025–2035 预测。增长率必须与岗位基数和年均空缺一起看。</p>
+      <div class="school-grid">
+        <article class="school-card"><h3>冲刺 / 顶尖工程生态</h3><p>MIT、Stanford、UC Berkeley、Caltech、Carnegie Mellon、Cornell、Michigan、Georgia Tech。</p><small>强研究、跨学科和雇主网络；录取高度竞争，不宜只看综合排名。</small></article>
+        <article class="school-card"><h3>实力强、就业面广</h3><p>UIUC、Purdue、UT Austin、UC San Diego、Texas A&amp;M、Wisconsin–Madison、Virginia Tech、Maryland、Penn State、NC State。</p><small>许多公立强校的工程雇主网络、实验设施和校友规模优于综合排名印象。</small></article>
+      </div>
+      <div class="note"><span>!</span><div><h3>工程方向的三个隐性风险</h3><p>国防、航空航天和部分先进技术岗位可能要求美国国籍或安全许可；BME 若不形成硬核分支，本科求职可能两头不靠；部分大学录取学院而非具体专业，转热门专业存在二次筛选。</p></div></div>
+    </section>
+
+    <section class="band health" id="health">
+      <div class="section-head"><p class="num">03</p><div><p class="kicker">Health</p><h2>健康：需求大，但“健康专业”不是一种路径</h2></div></div>
+      <p class="intro">护理是临床执业，公共卫生偏项目与政策，生物统计和信息学偏数据，BME 属于工程，Pre-med 只是医学院先修路线。路径不同，学制、成本、就业和国际生可行性完全不同。</p>
+      <div class="table-wrap">
+        <table class="five">
+          <thead><tr><th>专业路径</th><th>本科核心课程</th><th>典型工作</th><th>AI 时代判断</th><th>选择提醒</th></tr></thead>
+          <tbody>
+            <tr><th>护理 BSN</th><td>解剖生理、药理、病理、护理评估、成人/儿童/妇产/精神护理、临床轮转。</td><td>注册护士、专科护理；后续可走管理、信息化、研究或高级执业护理。</td><td>高韧性。AI 辅助记录、分诊和监测，但直接照护、沟通和临床责任难替代。</td><td>就业直接，但需强临床意愿、通过 NCLEX-RN，并考虑执照和签证。</td></tr>
+            <tr><th>公共卫生 / 流行病学</th><td>流行病学、生物统计、全球健康、健康政策、环境健康、行为科学、项目评估。</td><td>项目协调、健康研究、政策、社区健康、咨询；流行病学家常需 MPH/MS。</td><td>数据监测更自动化，但因果推断、项目设计、沟通和政策判断仍重要。</td><td>本科单独就业信号偏弱，最好搭配统计、编程、经济学或 GIS。</td></tr>
+            <tr><th>生物统计 / 健康数据</th><td>微积分、线代、概率、回归、统计推断、临床试验、生存分析、R/Python。</td><td>临床数据、药企研发、真实世界证据、医疗分析、生物统计分析。</td><td>强互补。模型生成容易后，实验设计、数据质量、因果和合规更关键。</td><td>本科可进分析岗；核心生物统计师和研究岗通常硕士起步。</td></tr>
+            <tr><th>健康信息学</th><td>数据库、医疗信息系统、统计、流程设计、隐私安全、互操作标准、产品管理。</td><td>医院信息化、医疗产品、实施咨询、临床数据、运营分析。</td><td>上升型互补。医院需要把 AI 接入工作流，同时满足隐私、验证和临床采用。</td><td>避免只有管理概论、缺少数据库和分析深度的项目。</td></tr>
+            <tr><th>生物医学工程</th><td>工程数学、生理、生物材料、仪器、成像、信号、设计、医疗器械法规。</td><td>器械研发、测试、质量、法规、产品、临床工程。</td><td>成像、信号、机器人和数字医疗受益明显；硬件验证仍是壁垒。</td><td>属于工程而非临床执业；最好形成“工程母专业 + 医疗应用”。</td></tr>
+            <tr><th>营养 / 生物学 / Pre-med</th><td>生物、化学、有机、物理、生化、遗传、营养；另完成医学院先修课。</td><td>实验室、健康教育、临床研究协调；医生、牙医、营养师需后续专业教育。</td><td>基础生物本科岗可能承压；临床资质、实验、法规与数据更有价值。</td><td>Pre-med 不是专业。国际生申请美国医学院名额少、成本高，不宜作为唯一退路。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-strip">
+        <div><span>注册护士 RN</span><b>180,800</b><small>年均空缺；总岗位 346.5 万，预测 +6%</small></div>
+        <div><span>流行病学家</span><b>+19%</b><small>但仅约 12,800 个岗位，典型入门学历为硕士</small></div>
+        <div><span>医疗服务管理</span><b>+24%</b><small>增长快，但通常要求相关工作或临床经验</small></div>
+        <div><span>国际生医学院</span><b>43 所</b><small>AAMC：2025 年接受国际申请的美国医学院数量</small></div>
+      </div>
+      <div class="school-grid">
+        <article class="school-card"><h3>公卫 / 生统 / 健康数据</h3><p>Johns Hopkins、UNC Chapel Hill、Michigan、University of Washington、UC Berkeley、Emory、Boston University。</p></article>
+        <article class="school-card"><h3>生物医学工程</h3><p>Johns Hopkins、Duke、Georgia Tech、Michigan、UC San Diego、Rice、Case Western Reserve。</p></article>
+        <article class="school-card"><h3>本科护理</h3><p>Penn、Michigan、UNC、NYU、UCLA、Emory、Case Western Reserve、University of Washington。</p></article>
+        <article class="school-card"><h3>必须分开的两条路线</h3><p><b>Pre-med：</b>任何主修均可，但要完成医学院先修课。<br><b>RDN 营养师：</b>核查 ACEND 认证、实习和研究生要求。</p></article>
+      </div>
+    </section>
+
+    <section class="band agriculture" id="agriculture">
+      <div class="section-head"><p class="num">04</p><div><p class="kicker">Agriculture &amp; Natural Resources</p><h2>农业与自然资源：专业化、小规模、强场景</h2></div></div>
+      <p class="intro">食品安全、水资源、气候适应、自动化农业和生物育种都有真实需求。关键不是“有没有前景”，而是岗位分散、地域集中、部分方向需要研究生，因此本科必须选择清晰的行业入口。</p>
+      <div class="table-wrap">
+        <table class="five">
+          <thead><tr><th>专业路径</th><th>本科核心课程</th><th>典型工作</th><th>AI 时代判断</th><th>选择提醒</th></tr></thead>
+          <tbody>
+            <tr><th>农业 / 生物系统工程</th><td>工程力学、流体、土壤与水、传感器、机械、控制、农业系统、GIS、能源。</td><td>精准农业、农机与机器人、灌溉、水资源、温室、食品工程、自动化。</td><td>强互补。视觉、无人机、传感器和预测模型需与机械、水土和生物系统集成。</td><td>职业基数小；应拓展到机械、环境、水务和自动化岗位。</td></tr>
+            <tr><th>食品科学</th><td>食品化学、微生物、加工工程、感官、营养、质量控制、安全、产品开发。</td><td>产品研发、质量与食品安全、工艺、法规、供应链、配方与感官研究。</td><td>稳健互补。配方预测可加速，生产验证、安全合规、口感和规模化是实体壁垒。</td><td>本科就业相对清晰，中美均有庞大食品制造与消费市场。</td></tr>
+            <tr><th>植物 / 土壤 / 作物科学</th><td>植物生理、遗传育种、土壤、病理、昆虫、作物管理、试验设计、基因组学。</td><td>种业、农业研发、田间试验、植保、土壤与可持续农业、技术服务。</td><td>数据育种、表型识别和精准投入提升需求；高级研发多需研究生。</td><td>优先选择有田间站、产业合作和数据训练的项目。</td></tr>
+            <tr><th>环境科学 + GIS / 数据</th><td>生态、环境化学、地球系统、水文、统计、GIS、遥感、政策、现场采样。</td><td>环境咨询、合规、ESG 数据、GIS、水与空气监测、气候风险。</td><td>遥感和报告自动化增强效率；现场采样、法规判断和沟通仍关键。</td><td>比环境工程少工程设计；必须用 GIS、统计、编程或法规形成硬技能。</td></tr>
+            <tr><th>林业 / 自然资源</th><td>森林生态、测量、野生动物、水文、火管理、资源经济、GIS、政策与野外实习。</td><td>林业经营、保护规划、火灾与生态恢复、自然资源咨询、公园与政府机构。</td><td>遥感、无人机和风险模型提升效率，但岗位受公共预算和地区影响。</td><td>政府岗位占比较高；国际生提前核查雇主资格与地域偏好。</td></tr>
+            <tr><th>农业经济 / 食品供应链</th><td>微观经济、统计、计量、农业政策、商品市场、供应链、金融、风险管理。</td><td>采购、供应链、商品分析、农业金融、咨询、食品企业运营。</td><td>预测工具普及后，行业知识、风险判断、谈判和全球供应链更重要。</td><td>加强量化和实习，兼顾商业弹性与食品农业行业入口。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-strip">
+        <div><span>农业与食品科学家</span><b>+6%</b><small>37,400 个岗位；年均 2,700 个空缺</small></div>
+        <div><span>环境科学家</span><b>+6%</b><small>93,400 个岗位；年均 7,300 个空缺</small></div>
+        <div><span>农业工程师</span><b>+7%</b><small>仅约 1,500 个岗位；年均约 100 个空缺</small></div>
+        <div><span>保护科学 / 林业</span><b>+4%</b><small>约 40,900 个岗位；政府和公共土地雇主较多</small></div>
+      </div>
+      <p class="caption">农业工程说明增长率不能单看：+7% 高于平均，但职业基数很小。要核查毕业生能否进入机械、环境、水务、自动化和食品设备岗位。</p>
+      <div class="school-grid">
+        <article class="school-card"><h3>农业、食品、环境综合强校</h3><p>Cornell CALS、UC Davis、Wisconsin–Madison、Purdue、UIUC、Texas A&amp;M、NC State、Minnesota、Penn State、Virginia Tech。</p><small>关注试验站、食品中试线、农机与传感实验室、校企合作，不只看综合排名。</small></article>
+        <article class="school-card"><h3>自然资源与生态特色强</h3><p>UC Berkeley Rausser、Cornell、UC Davis、Wisconsin–Madison、Michigan、Colorado State、Oregon State、SUNY ESF。</p><small>职业高度依赖区域：森林、水资源、火灾、海岸和农业州各有不同雇主生态。</small></article>
+      </div>
+    </section>
+
+    <section class="band dark" id="comparison">
+      <div class="section-head"><p class="num">05</p><div><p class="kicker" style="color:#86c9c3">Cross-track comparison</p><h2>横向比较与优先组合</h2></div></div>
+      <p class="intro">国际生家庭不能只比较兴趣和排名；至少还要比较本科直接就业、读研依赖、执照跨境、雇主身份限制和回国迁移性。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>维度</th><th>工程</th><th>健康</th><th>农业与自然资源</th></tr></thead>
+          <tbody>
+            <tr><th>本科直接就业</th><td>强：多数工程专业有明确入口岗</td><td>护理强；公卫/生统/BME 分化大</td><td>食品科学较强；环境科学与自然资源依赖技能组合</td></tr>
+            <tr><th>数学与编程</th><td>中—高，视专业而定</td><td>护理低—中；生统/信息学高</td><td>工程方向高；食品/植物中；GIS 可显著加码</td></tr>
+            <tr><th>读研依赖</th><td>本科可就业；研发岗常受益于硕博</td><td>医生、流行病学家、生物统计师等常需深造</td><td>育种、生态科研偏硕博；食品质量/工艺本科可入行</td></tr>
+            <tr><th>执照 / 认证</th><td>土木环境后期可能涉及 PE；优先 ABET</td><td>护理 NCLEX；营养 RDN；临床监管强</td><td>林业、农学、食品安全部分岗位有行业认证</td></tr>
+            <tr><th>国际生在美难度</th><td>总体中等；国防/涉密受限</td><td>护理有执照与签证变量；政府公卫受限</td><td>私营食品/设备较友好；政府自然资源岗更受限</td></tr>
+            <tr><th>回中国迁移性</th><td>高：制造、半导体、能源、基建广泛适用</td><td>器械/数据较高；临床执照跨境性低</td><td>食品、环境、水、农业科技较高；政策岗本地化强</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="recommend-grid">
+        <article class="recommend-card"><b>A</b><h3>就业与中美迁移优先</h3><p>工业工程/运筹、机械+控制、ECE、环境/水工程、材料+半导体或电池。</p></article>
+        <article class="recommend-card"><b>B</b><h3>确定喜欢健康科技</h3><p>BME+ECE/CS、生物统计/健康数据、健康信息学；明确喜欢临床照护再优先护理。</p></article>
+        <article class="recommend-card"><b>C</b><h3>偏爱食品、环境与生命系统</h3><p>食品科学、环境工程、农业工程+传感/GIS、植物土壤+数据、环境科学+GIS/法规。</p></article>
+      </div>
+    </section>
+
+    <section id="method">
+      <div class="section-head"><p class="num">06</p><div><p class="kicker">School selection method</p><h2>选学校时逐校核查七件事</h2></div></div>
+      <p class="intro">学校名单只是起点。真正影响四年体验和第一份工作的，是录取机制、课程结构、实践资源、认证、签证口径和所在地产业。</p>
+      <ol class="checklist">
+        <li><span class="step">01</span><div><strong>录取到学校、学院还是专业？</strong><p>热门工程、护理或 CS 是否需要入校后二次申请；转专业是否有 GPA、名额或先修限制。</p></div></li>
+        <li><span class="step">02</span><div><strong>看高年级课程，不只看专业名称</strong><p>检查控制、嵌入式、GIS、统计、数据库、实验、法规是否真正开设且本科生能选。</p></div></li>
+        <li><span class="step">03</span><div><strong>Co-op、实习和 Capstone 是否进入培养体系</strong><p>看雇主名单、参与率、学期安排和国际生 CPT 支持，而非只看宣传。</p></div></li>
+        <li><span class="step">04</span><div><strong>认证和执照路径</strong><p>工程核查 ABET；护理、营养和临床项目核查对应认证、实习与州执照。</p></div></li>
+        <li><span class="step">05</span><div><strong>STEM OPT 看具体 CIP Code</strong><p>同名专业可能使用不同代码；以录取项目 I-20 对应 CIP 和 DHS 当年名单为准。</p></div></li>
+        <li><span class="step">06</span><div><strong>雇主结构与身份限制</strong><p>国防涉密、联邦政府、部分公共资源岗位不利于国际生；私营制造、食品、器械通常更宽。</p></div></li>
+        <li><span class="step">07</span><div><strong>产业地理与回国接口</strong><p>看学校附近半导体、汽车、医疗器械、食品、水务或农业科技集群，也看技能能否迁回中国。</p></div></li>
+      </ol>
+      <div class="fit-grid">
+        <article class="fit-card"><h3>申请前需要补充的个人信息</h3><ul><li>校内成绩、课程难度、年级排名和标化</li><li>数学、物理、化学、生物、编程的强弱</li><li>总预算、是否需要奖学金、可接受州和气候</li><li>是否愿意读研，是否接受临床、实验、工厂或户外环境</li></ul></article>
+        <article class="fit-card"><h3>下一步的正确产出</h3><ul><li>先确定 2–3 条专业主路线，而不是直接列几十所学校</li><li>每条路线建立冲刺、匹配、保底三个层次</li><li>逐校记录录取方式、转专业限制、课程、Co-op、CIP 和就业区域</li><li>用项目经历验证兴趣：编程/机器人、健康数据、食品实验或 GIS</li></ul></article>
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="section-head"><p class="num">07</p><div><p class="kicker">Sources &amp; limits</p><h2>主要来源与使用边界</h2></div></div>
+      <p class="intro">就业数字用于判断美国职业结构和相对规模，不是对个人录用的保证。学校政策、STEM 资格和专业设置会变化，申请当年必须回到官方页面复核。</p>
+      <div class="sources">
+        <div class="source-group"><h3>职业数据</h3><ul>
+          <li><a href="https://www.bls.gov/ooh/architecture-and-engineering/industrial-engineers.htm">BLS：Industrial Engineers</a></li>
+          <li><a href="https://www.bls.gov/ooh/architecture-and-engineering/mechanical-engineers.htm">BLS：Mechanical Engineers</a></li>
+          <li><a href="https://www.bls.gov/ooh/architecture-and-engineering/computer-hardware-engineers.htm">BLS：Computer Hardware Engineers</a></li>
+          <li><a href="https://www.bls.gov/ooh/architecture-and-engineering/environmental-engineers.htm">BLS：Environmental Engineers</a></li>
+          <li><a href="https://www.bls.gov/ooh/healthcare/registered-nurses.htm">BLS：Registered Nurses</a></li>
+          <li><a href="https://www.bls.gov/ooh/life-physical-and-social-science/epidemiologists.htm">BLS：Epidemiologists</a></li>
+          <li><a href="https://www.bls.gov/ooh/life-physical-and-social-science/agricultural-and-food-scientists.htm">BLS：Agricultural and Food Scientists</a></li>
+          <li><a href="https://www.bls.gov/ooh/life-physical-and-social-science/environmental-scientists-and-specialists.htm">BLS：Environmental Scientists</a></li>
+        </ul></div>
+        <div class="source-group"><h3>课程与项目</h3><ul>
+          <li><a href="https://engineering.mit.edu/undergraduate">MIT Undergraduate Engineering</a></li>
+          <li><a href="https://engineering.purdue.edu/Engr/Academics/Undergraduate/first-year-engineering/First-Year-Engineering-Students/transition-to-major">Purdue Transition to Major</a></li>
+          <li><a href="https://coe.gatech.edu/academics/work-experience-through-co-op-and-internships">Georgia Tech Co-op</a></li>
+          <li><a href="https://e-catalogue.jhu.edu/arts-sciences/full-time-residential-programs/degree-programs/public-health-studies/public-health-studies-bachelor-arts/">Johns Hopkins Public Health</a></li>
+          <li><a href="https://catalog.upenn.edu/undergraduate/programs/nursing-bsn/">Penn BSN</a></li>
+          <li><a href="https://bme.duke.edu/academics/undergrad/">Duke BME</a></li>
+          <li><a href="https://cals.cornell.edu/education/degrees-programs">Cornell CALS</a></li>
+          <li><a href="https://caes.ucdavis.edu/students/academics">UC Davis CA&amp;ES</a></li>
+        </ul></div>
+        <div class="source-group"><h3>认证、签证与专业教育</h3><ul>
+          <li><a href="https://www.abet.org/accreditation/what-is-accreditation/">ABET 工程认证</a></li>
+          <li><a href="https://studyinthestates.dhs.gov/stem-opt-hub">DHS STEM OPT Hub</a></li>
+          <li><a href="https://students-residents.aamc.org/applying-medical-school/applying-medical-school-international-applicant">AAMC：国际申请人申请医学院</a></li>
+          <li><a href="https://www.eatrightpro.org/acend/accredited-programs/about-accredited-programs">ACEND 认证项目</a></li>
+        </ul></div>
+      </div>
+      <p class="methodology">学校名单按学科实力、课程生态和雇主连接整理为候选池，不等同于固定排名或录取难度排序。中国就业前景还受城市、产业周期、学历层次和本地资格影响；在最终确定路线时，应补充目标城市与雇主数据。</p>
+    </section>
+
+    <footer>美国本科专业与就业分析报告 · 独立 HTML 版 · 2026 年 8 月</footer>
+  </main>
+</body>
+</html>
