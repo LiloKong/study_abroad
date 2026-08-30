@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Editors and temporary files
+.idea/
+.vscode/
+*.swp
+*.tmp
+~$*
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials.json
+
+# Python and JavaScript caches
+__pycache__/
+*.py[cod]
+node_modules/
+
+# Generated output
+dist/
+build/
+*.log
